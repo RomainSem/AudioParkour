@@ -16,12 +16,12 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
     }
 
     #endregion
@@ -48,12 +48,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Bouton")
             {
-                _target = hit.collider.gameObject.GetComponent<IUsable>();
+                _target = hit.collider.GetComponent<IUsable>();
             }
-            else
-            {
-                _target = null;
-            }
+        }
+        else
+        {
+            _target = null;
         }
     }
 
@@ -65,18 +65,19 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void ChangeCrossHairState()
+    public void ChangeCrossHairState()
     {
         if (_target != null)
         {
-            _crosshair.GetComponent<Image>().color = Color.blue;
+            _crosshair.color = Color.blue;
         }
         else
         {
-            _crosshair.GetComponent<Image>().color = Color.white;
+            _crosshair.color = Color.white;
+            Debug.Log("raycast");
         }
     }
-    
+
     #endregion
 
     #region Private & Protected
