@@ -46,10 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, _maxDistance))
         {
-            if (hit.collider.gameObject.tag == "Bouton")
-            {
-                _target = hit.collider.GetComponent<IUsable>();
-            }
+            _target = hit.collider.GetComponent<IUsable>();
         }
         else
         {
